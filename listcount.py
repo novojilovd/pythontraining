@@ -1,9 +1,9 @@
 animals = ['cat', 'dog', 'bird', 'monkey']
 for animal in animals:
- print(f"{animal.upper()} is cool!")
+    print(f"{animal.upper()} is cool!")
 
 for count in range(1,6):
- print(count)
+    print(count)
 
 numbers = list(range(1,6))
 print(numbers)
