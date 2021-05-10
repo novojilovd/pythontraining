@@ -1,7 +1,7 @@
 def greet(name):
-    if name.lower().split() == 'daniil':
-        print(f"Hello {name.upper()}")
+    if name == 'daniil':
+        print(f"Hello {name.title()}")
     else:
         print(f"Hello not Daniil")
 
-greet(input("Write your name "))
+greet(input("Write your name ").lower().strip())
