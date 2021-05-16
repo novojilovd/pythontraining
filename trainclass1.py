@@ -4,16 +4,19 @@ class Animal():
     def __init__(self, *args):
 
         self.text = [name for name in args]
+        self.count = [1 for i in range(len(self.text))]
 
     def output(self):
-        for name in self.text: 
-            print(f'{ name }', end=' ')
-        print('\n')
+        for i in range(len(self.text)): 
+            print(f'{ self.text[i] } {self.count[i]}')
 
     def help(self):
         print(f"You want to know { input('What do you want to know: ') }")
 
-testing = Animal('Cat', 'Dog')
+    def counting(self):
+        for i in range(len(self.text)):
+            self.count[i] = input(f'How much {self.text[i].lower()} do you have: ')
 
+testing = Animal('Cat', 'Dog')
+testing.counting()
 testing.output()
-testing.help()
