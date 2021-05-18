@@ -19,7 +19,7 @@ class Restorane():
         print('\nMake your order, please.\nWrite "done" when you complete\n')
         order = {}
         while True:
-            name_dish = input('Write what do you want to eat: ').lower()
+            name_dish = input('Write what do you want to order: ').lower()
             if name_dish.lower() == 'done':
                 break
             if name_dish.title() not in self.menu.keys():
@@ -37,6 +37,10 @@ class Bottle(Restorane):
     
     def __init__(self):
         self.menu = { 'Red Vine': 10, 'White Vine': 10, 'Blue Vine': 100, 'Glue Vine': 1000}
+        self.history = { 'Red Vine': 'Good', 'White Vine': 'Bad', 'Blue Vine': 'Angry', 'Glue Vine': 'Glue'}        
+
+    def drink_history(self, drink):
+        print(f'{ self.history.get(drink.title()) }')
 
 def food():
     test = Restorane(input("Which restorane do you want to visit?\n"), 10)
@@ -46,6 +50,7 @@ def food():
 def drink():
     test = Bottle()
     test.show_menu()
+    test.drink_history('Red vine')
     test.ordering('Vine card')
 
 food()
