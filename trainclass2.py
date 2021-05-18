@@ -5,15 +5,19 @@ class Restorane():
         self.name = name
         self.workers = workers
         self.menu = { 'Meat': 10, 'Fish': 10, 'Candy': 100 }
+
+        print(f'Welcome to "{self.name}"!\n')
     
     def show_menu(self):
         print('Our menu:\n')
         i = 1
         for dish, price in self.menu.items():
             print(f'{ i }. { dish.title() } is cost { price } g.')
+            i +=1
 
-    def ordering(self):
-        print('Make your order, please.\nWrite "done" when you complete')
+    def ordering(self, menu_title = 'Main menu'):
+        print('\nMake your order, please.\nWrite "done" when you complete\n')
+        order = {}
         while True:
             name_dish = input('Write what do you want to eat: ').lower()
             if name_dish.lower() == 'done':
@@ -22,10 +26,27 @@ class Restorane():
                print("Sorry, we don't have it, order something else")
                continue
             else:
-                count = input(f'How much { name_dish } do you want: ')
+                count = int(input(f'How much { name_dish } do you want: '))
                 print(f'You ordered { count } { name_dish }')
+                order[name_dish] = count
+        print(f'--- { menu_title } --- \nYour order:\n')
+        for name, count in order.items():
+            print(f'- { name } x { count } = { self.menu.get(name.title()) * count } g') 
 
-test1 = Restorane('Hwllo', 10)
-test1.show_menu()
-test1.ordering()
-         
+class Bottle(Restorane):
+    
+    def __init__(self):
+        self.menu = { 'Red Vine': 10, 'White Vine': 10, 'Blue Vine': 100, 'Glue Vine': 1000}
+
+def food():
+    test = Restorane(input("Which restorane do you want to visit?\n"), 10)
+    test.show_menu()
+    test.ordering()
+
+def drink():
+    test = Bottle()
+    test.show_menu()
+    test.ordering('Vine card')
+
+food()
+drink()
