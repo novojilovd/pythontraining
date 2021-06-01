@@ -14,10 +14,15 @@ while m < N:
     for i in range(m, N):
         b[i][N-1] = a[n]
         n += 1
-
-    for i in range(m, N):
-        b[N-1][N-1-i] = a[n]
-        n += 1
+    
+    if (m+1) == N:
+        for i in range(m, N):
+            b[N-1][N-i] = a[n]
+            n += 1
+    else:
+        for i in range(m, N):
+            b[N-1][N-1-i] = a[n]
+            n += 1 
 
     for i in range(m, N-1):
         b[N-1-i][m-1] = a[n]
