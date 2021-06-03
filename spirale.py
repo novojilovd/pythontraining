@@ -34,9 +34,9 @@ for j in range(k):
     print('\n')
     #left
     for i in range(m + 1, N):
-        if m > 0 and (N - m != 2 or N % 2 != 0):
+        if m > 0 and m % 2 != 0:
             b[N-1][N-i] = a[n]
-        elif m > 0 and (N - m == 2 or m % 2 == 0):
+        elif m > 0 and m % 2 == 0:
             b[N-1][N-i+1] = a[n]
         else:
             b[N-1][N-1-i] = a[n]
@@ -49,8 +49,10 @@ for j in range(k):
     if (j+1) == k and check: break
     #up
     for i in range(m + 1, N - 1):
-        if m > 0:
+        if m > 0 and m % 2 != 0:
             b[N-i][m] = a[n]
+        elif m > 0 and m % 2 == 0:
+            b[N-i+1][m] = a[n]
         else:
             b[N-1-i][m] = a[n]
         n += 1
