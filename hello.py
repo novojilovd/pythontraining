@@ -1,3 +1,3 @@
-message="Hello new World!"
+message = "Hello absolute World!"
 print(message)
 
