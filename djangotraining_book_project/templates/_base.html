@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
+<a href="{% url 'book_list' %}">Books</a>
 <a href="{% url 'about' %}">About</a>
 {% if user.is_authenticated %}
      <a href="{% url 'account_logout' %}">Log Out</a>
