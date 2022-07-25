@@ -1,19 +1,15 @@
 def merge_while(A, p, q, r):
     nL = q - p + 1
     nR = r - q
+
     L = [True for i in range(nL + 1)]
     R = [True for i in range(nR + 1)]
-    print(nL, nR, ' ', p, q, r)
+
     for i in range(0, nL):
         L[i] = A[p + i]
     for j in range(0, nR):
         R[j] = A[q + 1 + j]
 
-    L[nL] = 1000000
-    R[nR] = 1000000
-    print(L, R)
-    print('-------------')
-    
     i = 0
     j = 0
     k = p
@@ -40,9 +36,10 @@ def merge_while(A, p, q, r):
 def merge_for(A, p, q, r):
     nL = q - p + 1
     nR = r - q
+
     L = [True for i in range(nL + 1)]
     R = [True for i in range(nR + 1)]
-    print(nL, nR, ' ', p, q, r)
+
     for i in range(0, nL):
         L[i] = A[p + i]
     for j in range(0, nR):
@@ -50,8 +47,6 @@ def merge_for(A, p, q, r):
 
     L[nL] = 1000000
     R[nR] = 1000000
-    print(L, R)
-    print('-------------')
  
     i = 0
     j = 0
@@ -70,11 +65,9 @@ def merge_sort(A, p, r):
  
         merge_sort(A, p, q)
         merge_sort(A, q + 1, r)
-        merge_while(A, p, q, r)
-        print('Merged A', A)
+        merge_for(A, p, q, r)
 
 if __name__ == '__main__':
     A = [1,3,4,-2,2,6,8,2,3,4,5,6,8]
-    print(A)
     merge_sort(A, 0, len(A) - 1)
     print(A)
